@@ -1,0 +1,509 @@
+/* style.css - modern colorful theme for Kasir UMKM */
+:root {
+  --bg: #0f1724; /* dark background */
+  --card: #0b1220;
+  --muted: #9aa7c7;
+  --accent-1: #7c3aed; /* purple */
+  --accent-2: #06b6d4; /* cyan */
+  --accent-3: #f97316; /* orange */
+  --glass: rgba(255, 255, 255, 0.04);
+  --surface: linear-gradient(
+    135deg,
+    rgba(124, 58, 237, 0.12),
+    rgba(6, 182, 212, 0.06)
+  );
+  --radius: 14px;
+  --shadow: 0 6px 18px rgba(2, 6, 23, 0.6);
+  --text: #e6eef8;
+  --success: #16a34a;
+  --danger: #ef4444;
+  --gap: 16px;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial;
+}
+
+/* Basic page */
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  background: radial-gradient(
+      1200px 600px at 10% 10%,
+      rgba(124, 58, 237, 0.08),
+      transparent
+    ),
+    radial-gradient(
+      900px 500px at 90% 90%,
+      rgba(6, 182, 212, 0.04),
+      transparent
+    ),
+    var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding: 24px;
+  line-height: 1.4;
+  font-size: 14px;
+}
+
+/* Container helper */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Header / title */
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--gap);
+  margin-bottom: 18px;
+}
+.brand {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.logo {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: var(--surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow);
+  font-weight: 700;
+  color: var(--text);
+}
+.title {
+  font-size: 18px;
+  font-weight: 700;
+}
+.subtitle {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* Card */
+.card {
+  background: linear-gradient(180deg, rgb(243, 0, 0), rgb(248, 0, 0));
+  border-radius: var(--radius);
+  padding: 16px;
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+/* Layout grid */
+.grid {
+  display: grid;
+  gap: 16px;
+}
+.grid.cols-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+.grid.cols-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+/* Product card */
+.product-card {
+  border-radius: 12px;
+  padding: 14px;
+  background: linear-gradient(
+    135deg,
+    rgba(124, 58, 237, 0.06),
+    rgba(6, 182, 212, 0.03)
+  );
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-height: 140px;
+}
+.product-card .name {
+  font-weight: 700;
+}
+.product-card .meta {
+  color: var(--muted);
+  font-size: 13px;
+}
+.tag {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 999px;
+  font-size: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text);
+}
+
+/* Table */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background: transparent;
+}
+.table th,
+.table td {
+  padding: 10px 12px;
+  text-align: left;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.03);
+}
+.table th {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  text-decoration: none;
+}
+.btn-primary {
+  background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+  color: rgb(0, 0, 0);
+  box-shadow: 0 6px 18px rgba(124, 58, 237, 0.15);
+}
+.btn-ghost {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+.btn-success {
+  background: linear-gradient(90deg, #22c55e, #16a34a);
+  color: white;
+}
+.btn-danger {
+  background: linear-gradient(90deg, #fb7185, #ef4444);
+  color: white;
+}
+
+/* Forms */
+input[type="text"],
+input[type="number"],
+select {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  background: rgba(255, 255, 255, 0.02);
+  color: var(--text);
+  width: 100%;
+}
+.row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.col {
+  flex: 1;
+}
+
+/* Small helpers */
+.kv {
+  color: var(--muted);
+  font-size: 13px;
+}
+.money {
+  font-weight: 700;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .grid.cols-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 600px) {
+  .grid.cols-3,
+  .grid.cols-2 {
+    grid-template-columns: 1fr;
+  }
+  .row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .app-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* Special: cart badge */
+.badge {
+  background: linear-gradient(90deg, var(--accent-3), var(--accent-1));
+  color: white;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-weight: 700;
+  box-shadow: 0 6px 18px rgba(249, 115, 22, 0.12);
+}
+
+/* Subtle footer link */
+.footer-note {
+  color: var(--muted);
+  font-size: 13px;
+  margin-top: 18px;
+}
+/* Perbaikan: teks item produk agar terlihat */
+.product-card,
+.product-card * {
+  color: var(--text) !important;
+}
+.navbar {
+  background: #1f2937;
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+.nav-brand {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 700;
+}
+.nav-menu a {
+  color: #fff;
+  margin-left: 18px;
+  padding: 8px 12px;
+  text-decoration: none;
+  border-radius: 8px;
+}
+.nav-menu a:hover {
+  background: #374151;
+}
+/* Perbaikan warna teks navbar */
+.navbar,
+.navbar * {
+  color: #ffffff !important;
+}
+.nav-menu a {
+  color: #000000 !important;
+  font-weight: 600;
+}
+.nav-menu a.active {
+  background: #ffb100;
+  color: #000 !important;
+  padding: 8px 12px;
+  border-radius: 6px;
+}
+.nav-menu a:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+/* === FIX WARNA TEKS YANG MASIH HITAM === */
+body,
+body * {
+  color: var(--text) !important;
+}
+.money,
+.meta,
+.price,
+.nama,
+.stok {
+  color: var(--text) !important;
+}
+.money {
+  font-size: 18px;
+  font-weight: bold;
+  color: #ffd468 !important;
+}
+/* === Perbaikan warna teks di tabel agar cerah & jelas === */
+.table th,
+.table td {
+  color: #000000 !important; /* tulisan putih */
+  font-weight: 500;
+}
+
+/* header tabel lebih terang */
+.table th {
+  color: #ffd56a !important; /* kuning keemasan agar menonjol */
+  font-weight: 700;
+}
+
+/* baris tabel efek hover lebih modern */
+.table tbody tr:hover {
+  background: rgba(255, 255, 255, 0.07);
+  transition: 0.2s;
+}
+.table td:nth-child(2) {
+  /* kolom harga */
+  color: #7cf1ff !important; /* biru terang */
+  font-weight: 600;
+}
+.table {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.table tbody tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.table tbody tr:nth-child(odd) {
+  background: rgba(255, 255, 255, 0.09);
+}
+.page-title {
+  font-size: 28px;
+  color: #fff;
+  margin-bottom: 18px;
+  font-weight: 700;
+}
+
+.form-box {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.form-box input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
+
+.search-input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 14px;
+  background: rgba(255, 255, 255, 0.12);
+  border: none;
+  color: #fff;
+}
+
+.btn-add {
+  background: #06b86e;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  color: #fff;
+  font-weight: 600;
+}
+.btn-add:hover {
+  opacity: 0.85;
+}
+
+.btn-delete {
+  background: #ff5b5b;
+  padding: 8px 14px;
+  border-radius: 8px;
+  color: #fff;
+  font-weight: 600;
+}
+.btn-delete:hover {
+  opacity: 0.85;
+}
+/* === Halaman Login === */
+.login-container {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(130deg, #040b2a, #041f44, #01627a);
+}
+
+.login-box {
+  background: rgba(255, 255, 255, 0.07);
+  padding: 30px;
+  border-radius: 14px;
+  width: 350px;
+  backdrop-filter: blur(6px);
+  text-align: center;
+  box-shadow: 0 0 18px rgba(0, 0, 0, 0.35);
+}
+
+.login-box h2 {
+  margin-bottom: 22px;
+  color: #fff;
+  font-weight: 700;
+}
+
+.login-box input {
+  width: 100%;
+  margin-bottom: 12px;
+  padding: 12px;
+  border: none;
+  outline: none;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.17);
+  color: #fff;
+}
+
+.login-box button {
+  width: 100%;
+  background: #00c26f;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.login-box button:hover {
+  opacity: 0.88;
+}
+
+.error {
+  background: rgba(255, 0, 0, 0.35);
+  padding: 8px;
+  border-radius: 6px;
+  margin-bottom: 12px;
+  color: #fff;
+  font-size: 14px;
+}
+/* Fix warna teks untuk input Qty */
+.table input[type="number"] {
+  color: #111 !important; /* hitam gelap agar terbaca */
+  font-weight: 600;
+  background: #ffffff !important; /* putih terang agar kontras */
+  border: 2px solid #0099cc; /* garis modern opsional */
+  border-radius: 6px;
+  text-align: center;
+}
+.qty-input {
+  color: #111 !important; /* angka jadi hitam */
+  background: #ffffff !important;
+  font-weight: 600;
+  text-align: center;
+  width: 90px;
+  border-radius: 6px;
+}
+input[type="number"],
+input[type="text"] {
+  color: #111 !important; /* warna angka hitam gelap */
+  background-color: #ffffff !important; /* background putih */
+  font-weight: 700; /* angka tebal */
+}
+@media print {
+  nav,
+  .btn-primary,
+  .btn-ghost,
+  .btn-success,
+  .btn-warning {
+    display: none !important;
+  }
+  .card {
+    border: none !important;
+    box-shadow: none !important;
+  }
+  body {
+    background: #fff !important;
+  }
+}
